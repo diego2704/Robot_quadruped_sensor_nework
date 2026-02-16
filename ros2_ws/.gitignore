@@ -1,0 +1,47 @@
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large ML model weights (use Git LFS or document separately)
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+
+# Large archives
+*.zip
+*.tar.gz
+
+# RViz session auto-save files
+*.rviz~
+
+# Compiled C++ artifacts (if applicable)
+*.o
+*.so
