@@ -172,6 +172,41 @@ robot-quadruped-sensor-network/
     └── video_link.md                 ← Demo video links
 ```
 
+## 🐳 Docker
+
+The ROS2 environment runs inside a Docker container. This was necessary because **ROS2 Humble requires Ubuntu 22.04**, while the Raspberry Pi 5 runs Ubuntu 24.04. Docker also ensures all Python dependencies are fully isolated and reproducible across machines.
+
+The image is publicly available on Docker Hub:
+
+```bash
+docker pull delcri/docker_network_ras:2
+```
+
+### Run the container
+
+```bash
+docker run -it --rm \
+  --network host \
+  --privileged \
+  -v /dev:/dev \
+  delcri/docker_network_ras:2
+```
+
+> `--network host` allows ROS2 DDS communication with the host network.  
+> `--privileged` and `-v /dev:/dev` give the container access to USB devices (CAN adapter, GPS, camera, LiDAR).
+
+### Inside the container
+
+```bash
+source /opt/ros/humble/setup.bash
+cd /ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch tesis_launch [main_launch_file.launch.py]
+```
+
+🔗 Docker Hub: [delcri/docker_network_ras](https://hub.docker.com/repository/docker/delcri/docker_network_ras/tags)
+
 ---
 
 ## Installation
