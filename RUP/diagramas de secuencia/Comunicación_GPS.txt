@@ -1,0 +1,18 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano Master" as ArduinoNanoMaster
+participant "Arduino Nano 1" as ArduinoNano1
+participant "GPS NEO6M" as GPS
+
+title Estimación de la Posición utilizando GPS NEO6M
+
+Usuario -> RaspberryPi: Enviar solicitud de estimación de posición
+RaspberryPi -> ArduinoNanoMaster: Transmitir solicitud de estimación
+ArduinoNanoMaster -> ArduinoNano1: Transmitir solicitud de estimación
+ArduinoNano1 -> GPS: Solicitar datos de posición
+GPS --> ArduinoNano1: Enviar datos de posición
+ArduinoNano1 --> ArduinoNanoMaster: Transmitir datos de posición
+ArduinoNanoMaster --> RaspberryPi: Transmitir datos de posición
+RaspberryPi --> Usuario: Mostrar datos de posición
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Lidar 2D" as Lidar
+
+title Detección de Objetos por Lidar 2D
+
+Usuario -> RaspberryPi: Enviar solicitud de detección de objetos
+RaspberryPi -> Lidar: Activar y capturar nube de puntos
+Lidar --> RaspberryPi: Enviar datos de nube de puntos
+RaspberryPi --> Usuario: Mostrar datos de nube de puntos
+@enduml

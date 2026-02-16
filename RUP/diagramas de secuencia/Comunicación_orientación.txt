@@ -1,0 +1,18 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano Master" as ArduinoNanoMaster
+participant "Arduino Nano 1" as ArduinoNano1
+participant "Sensor Inercial" as SensorInercial
+
+title Medición de la Orientación de la Raspberry Pi
+
+Usuario -> RaspberryPi: Enviar solicitud de medición de orientación
+RaspberryPi -> ArduinoNanoMaster: Transmitir solicitud de medición
+ArduinoNanoMaster -> ArduinoNano1: Transmitir solicitud de medición
+ArduinoNano1 -> SensorInercial: Solicitar datos de orientación
+SensorInercial --> ArduinoNano1: Enviar datos de orientación
+ArduinoNano1 --> ArduinoNanoMaster: Transmitir datos de orientación
+ArduinoNanoMaster --> RaspberryPi: Transmitir datos de orientación
+RaspberryPi --> Usuario: Mostrar datos de orientación
+@enduml

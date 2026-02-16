@@ -1,0 +1,18 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano Master" as ArduinoNanoMaster
+participant "Arduino Nano 1" as ArduinoNano1
+participant "Sensor de Gases" as SensorGases
+
+title Detección de Gases
+
+Usuario -> RaspberryPi: Enviar solicitud de detección de gases
+RaspberryPi -> ArduinoNanoMaster: Transmitir solicitud de detección
+ArduinoNanoMaster -> ArduinoNano1: Transmitir solicitud de detección
+ArduinoNano1 -> SensorGases: Solicitar datos de gases
+SensorGases --> ArduinoNano1: Enviar datos de gases detectados
+ArduinoNano1 --> ArduinoNanoMaster: Transmitir datos de gases
+ArduinoNanoMaster --> RaspberryPi: Transmitir datos de gases
+RaspberryPi --> Usuario: Mostrar datos de gases detectados
+@enduml

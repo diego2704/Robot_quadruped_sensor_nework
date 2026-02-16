@@ -1,0 +1,18 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano Master" as ArduinoNanoMaster
+participant "Arduino Nano 1" as ArduinoNano1
+participant "Sensor de Esfuerzo" as SensorEsfuerzo
+
+title Medición del Esfuerzo en las Patas de la Raspberry Pi Cuadrúpeda
+
+Usuario -> RaspberryPi: Enviar solicitud de medición de esfuerzo
+RaspberryPi -> ArduinoNanoMaster: Transmitir solicitud de medición
+ArduinoNanoMaster -> ArduinoNano1: Transmitir solicitud de medición
+ArduinoNano1 -> SensorEsfuerzo: Solicitar datos de esfuerzo
+SensorEsfuerzo --> ArduinoNano1: Enviar datos de esfuerzo
+ArduinoNano1 --> ArduinoNanoMaster: Transmitir datos de esfuerzo
+ArduinoNanoMaster --> RaspberryPi: Transmitir datos de esfuerzo
+RaspberryPi --> Usuario: Mostrar datos de esfuerzo
+@enduml

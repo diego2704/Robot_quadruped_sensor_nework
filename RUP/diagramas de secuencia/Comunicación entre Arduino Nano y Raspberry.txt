@@ -1,0 +1,11 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano" as ArduinoNano
+
+
+Usuario -> RaspberryPi: Enviar datos  
+RaspberryPi -> ArduinoNano: Enviar datos a ArduinoNano
+ArduinoNano --> RaspberryPi: Confirmación de transmisión
+RaspberryPi --> Usuario: Confirmación de comunicación exitosa
+@enduml

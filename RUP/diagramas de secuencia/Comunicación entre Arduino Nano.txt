@@ -1,0 +1,13 @@
+@startuml
+actor Usuario
+participant Raspberry_Pi
+participant "Arduino Nano 1" as ArduinoNano1
+participant "Arduino Nano 2" as ArduinoNano2
+
+Usuario -> Raspberry_Pi: Enviar datos entre Arduinos
+Raspberry_Pi -> ArduinoNano1: Enviar datos
+ArduinoNano1 -> ArduinoNano2: Transmitir datos
+ArduinoNano2 --> ArduinoNano1: Confirmacion de recepcion
+ArduinoNano1 --> Raspberry_Pi: Confirmacion de transmision
+Raspberry_Pi --> Usuario: Confirmacion de comunicacion exitosa
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano" as ArduinoNano
+participant Sensor
+
+title Comunicacion en Tiempo Real de Sensores
+
+Usuario -> RaspberryPi: Enviar señal de inicio
+RaspberryPi -> ArduinoNano: Transmitir señal de inicio
+ArduinoNano -> Sensor: Solicitar datos en tiempo real
+Sensor --> ArduinoNano: Enviar datos de sensores
+ArduinoNano --> RaspberryPi: Transmitir datos de sensores
+RaspberryPi --> Usuario: Mostrar datos de sensores
+@enduml

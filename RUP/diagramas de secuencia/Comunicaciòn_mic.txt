@@ -1,0 +1,13 @@
+@startuml
+actor Usuario
+participant "Micrófono" as Microfono
+participant "Raspberry Pi" as RaspberryPi
+
+title Generación de Comandos por Entrada de Voz
+
+Usuario -> RaspberryPi: Activar micrófono
+Usuario -> Microfono: Enviar entrada de voz
+Microfono -> RaspberryPi: Transmitir entrada de voz
+RaspberryPi -> RaspberryPi: Procesar entrada de voz
+RaspberryPi --> Usuario: Enviar comandos generados
+@enduml

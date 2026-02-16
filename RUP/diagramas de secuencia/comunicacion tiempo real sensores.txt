@@ -1,0 +1,10 @@
+@startuml
+actor Usuario
+participant Plataforma
+participant Sensor
+
+Usuario -> Plataforma: Solicitar datos en tiempo real
+Plataforma -> Sensor: Solicitar datos
+Sensor --> Plataforma: Datos de sensores en tiempo real
+Plataforma --> Usuario: Mostrar datos de sensores
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+
+title Interfaz de Usuario Intuitiva y Efectiva
+
+Usuario -> RaspberryPi: Interactuar con la interfaz
+RaspberryPi -> Usuario: Mostrar información
+Usuario -> RaspberryPi: Realizar acciones (entrada de datos, comandos)
+RaspberryPi -> Usuario: Confirmar acciones y mostrar resultados
+@enduml

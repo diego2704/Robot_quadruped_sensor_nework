@@ -1,0 +1,12 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Cámara de Visión Nocturna" as CamaraVisionNocturna
+
+title Detección de Objetos por Cámara de Visión Nocturna
+
+Usuario -> RaspberryPi: Enviar solicitud de detección de objetos
+RaspberryPi -> CamaraVisionNocturna: Activar y capturar imagen
+CamaraVisionNocturna --> RaspberryPi: Enviar imágenes capturadas
+RaspberryPi --> Usuario: Mostrar imágenes capturadas
+@enduml

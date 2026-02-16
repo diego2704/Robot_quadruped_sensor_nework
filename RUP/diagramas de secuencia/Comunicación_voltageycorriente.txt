@@ -1,0 +1,18 @@
+@startuml
+actor Usuario
+participant "Raspberry Pi" as RaspberryPi
+participant "Arduino Nano Master" as ArduinoNanoMaster
+participant "Arduino Nano 2" as ArduinoNano2
+participant "Sensor de Voltaje y Corriente" as SensorVoltajeCorriente
+
+title Medición del Consumo de Voltaje y Corriente
+
+Usuario -> RaspberryPi: Enviar solicitud de medición de voltaje y corriente
+RaspberryPi -> ArduinoNanoMaster: Transmitir solicitud de medición
+ArduinoNanoMaster -> ArduinoNano2: Transmitir solicitud de medición
+ArduinoNano2 -> SensorVoltajeCorriente: Solicitar datos de voltaje y corriente
+SensorVoltajeCorriente --> ArduinoNano2: Enviar datos de voltaje y corriente
+ArduinoNano2 --> ArduinoNanoMaster: Transmitir datos de voltaje y corriente
+ArduinoNanoMaster --> RaspberryPi: Transmitir datos de voltaje y corriente
+RaspberryPi --> Usuario: Mostrar datos de voltaje y corriente
+@enduml
