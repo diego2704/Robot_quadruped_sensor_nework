@@ -1,4 +1,4 @@
-# 🤖 Red de Sensores para Plataforma Cuadrúpeda 
+# 🤖 Sensor Network for Quadruped Platform
 
 [![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04%20%7C%2024.04-orange)](https://ubuntu.com/)
